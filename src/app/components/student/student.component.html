@@ -1,0 +1,31 @@
+<form [formGroup]="studentForm" class="form-group mt-4" (ngSubmit)="submit()">
+    <div class="container">
+        <div class="col-12">
+            <span>User name</span>
+            <input type="text" class="form-control" formControlName="userName" (keypress)="validateLetters($event)" >
+            <app-validator [control]="f['userName']"></app-validator>
+        </div>
+        <div class="col-12">
+            <span>First name</span>
+            <input type="text" class="form-control" formControlName="firstName" (keypress)="validateLetters($event)">
+            <app-validator [control]="f['firstName']"></app-validator>
+        </div>
+        <div class="col-12">
+            <span>Last name</span>
+            <input type="text" class="form-control" formControlName="lastName" (keypress)="validateLetters($event)">
+            <app-validator [control]="f['lastName']"></app-validator>
+        </div>
+        <div class="col-12">
+            <span>Age</span>
+            <input type="number" class="form-control" formControlName="age" min="0">
+        </div>
+        <div class="col-12">
+            <span>Career</span>
+            <input type="text" class="form-control" formControlName="career" (keypress)="validateLetters($event)">
+            <app-validator [control]="f['career']"></app-validator>
+        </div>
+        <div class="col-12 text-center mt-2 mb-3">
+            <button class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</form>

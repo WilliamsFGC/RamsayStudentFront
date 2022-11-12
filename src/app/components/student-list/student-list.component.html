@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-12">
+        <form [formGroup]="studentForm" (ngSubmit)="submit()">
+            <div class="row">
+                <div class="col-3">
+                    <span>User Name</span>
+                    <input type="text" class="form-control" formControlName="userName" (keypress)="validateLetters($event)">
+                </div>
+                <div class="col-3">
+                    <span>First Name</span>
+                    <input type="text" class="form-control" formControlName="firstName" (keypress)="validateLetters($event)">
+                </div>
+                <div class="col-3">
+                    <span>Last Name</span>
+                    <input type="text" class="form-control" formControlName="lastName" (keypress)="validateLetters($event)">
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-primary bi bi-search mt-4" type="submit"></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-12 mt-1">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th>Career</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of students">
+                    <td>{{student.firstName}}</td>
+                    <td>{{student.lastName}}</td>
+                    <td>{{student.age}}</td>
+                    <td>{{student.career}}</td>
+                    <td>
+                        <button class="btn btn-primary bi bi-trash" (click)="deleteStudent(student.id)"></button>
+                        <button class="btn btn-secondary bi bi-pencil mx-1" (click)="editStudent(student)"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

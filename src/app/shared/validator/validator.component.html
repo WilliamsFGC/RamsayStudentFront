@@ -1,0 +1,8 @@
+<div class="row text-danger" *ngIf="control.touched && control.invalid">
+    <div class="col-12" *ngIf="control.errors!['required'] !== undefined">
+        <span>This field is required</span>
+    </div>
+    <div class="col-12" *ngIf="control.errors!['maxlength'] && control.errors!['maxlength'].requiredLength">
+        <span>This field exceed the limit ({{control.errors!['maxlength'].requiredLength}}/{{control.errors!['maxlength'].actualLength}})</span>
+    </div>
+</div>

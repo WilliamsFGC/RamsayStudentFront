@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="card mt-4">
+    <div class="card-body">
+      <div class="container">
+        <div class="row">
+          <h4>{{title}}</h4>
+          <hr>
+          <div class="nav-button">
+            <button class="btn btn-primary bi bi-person-add" (click)="showButtons()"></button>
+            <button class="btn btn-secondary bi bi-search mx-1" (click)="showButtons(false)"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12" *ngIf="showStudent">
+            <app-student [student]="student" (updated)="studentUpdated()"></app-student>
+          </div>
+          <div class="col-12" *ngIf="showFind">
+            <app-student-list (selectStudent)="selectedStudent($event)"></app-student-list>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
